@@ -1,0 +1,106 @@
+# Cognee MCP v2.0 Git忽略文件
+
+# Python相关
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE相关
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 配置文件 - 敏感信息
+.env
+.env.local
+.env.production
+*.key
+*.pem
+*.p12
+*secret*
+*password*
+*token*
+
+# 日志文件
+*.log
+logs/
+log/
+
+# 缓存和临时文件
+.cache/
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# 测试相关
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# 数据文件
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# 备份文件
+*.bak
+*.backup
+*~
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 文档生成
+site/
+.mkdocs/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# 开发工具
+.pre-commit-config.yaml
+.flake8
+.isort.cfg

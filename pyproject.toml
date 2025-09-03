@@ -1,0 +1,136 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cognee-mcp-v2"
+version = "2.0.0"
+description = "Cognee MCP服务 - 企业级模块化重构版本"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "老王暴躁技术流", email = "tech@veritas.wiki"},
+]
+keywords = ["mcp", "cognee", "knowledge-graph", "ai", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pydantic>=2.0.0",
+    "aiohttp>=3.8.0",
+    "asyncio-mqtt>=0.13.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "structlog>=23.0.0",
+    "tenacity>=8.2.0",
+    "httpx>=0.24.0",
+    "orjson>=3.9.0",
+    "rdflib>=7.0.0",
+    "owlrl>=6.0.0",
+    "textblob>=0.17.1",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+monitoring = [
+    "prometheus-client>=0.17.0",
+    "opentelemetry-api>=1.15.0",
+    "opentelemetry-sdk>=1.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/veritaswiki/cognee-mcp-v2"
+Documentation = "https://github.com/veritaswiki/cognee-mcp-v2/blob/main/docs/"
+Repository = "https://github.com/veritaswiki/cognee-mcp-v2"
+"Bug Tracker" = "https://github.com/veritaswiki/cognee-mcp-v2/issues"
+
+[project.scripts]
+cognee-mcp = "main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "modules*", "tools*", "schemas*", "config*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "-ra",
+    "--cov=core",
+    "--cov=modules", 
+    "--cov=tools",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests", 
+    "e2e: End-to-end tests",
+    "slow: Slow running tests",
+]
+asyncio_mode = "auto"

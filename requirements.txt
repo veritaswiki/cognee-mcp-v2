@@ -1,0 +1,46 @@
+# Cognee MCP v2.0 - 核心依赖
+
+# 异步和网络
+aiohttp>=3.8.0
+asyncio-mqtt>=0.13.0
+httpx>=0.24.0
+
+# 数据处理和验证
+pydantic>=2.0.0
+orjson>=3.9.0
+pyyaml>=6.0
+
+# 环境和配置
+python-dotenv>=1.0.0
+
+# 日志和错误处理
+structlog>=23.0.0
+tenacity>=8.2.0
+
+# 本体和语义处理
+rdflib>=7.0.0
+owlrl>=6.0.0
+
+# 自然语言处理
+textblob>=0.17.1
+
+# 数值计算
+numpy>=1.24.0
+pandas>=2.0.0
+
+# 开发依赖 (可选安装)
+# pip install -e ".[dev]"
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+black>=23.0.0
+isort>=5.12.0
+flake8>=6.0.0
+mypy>=1.0.0
+pre-commit>=3.0.0
+
+# 监控依赖 (可选安装) 
+# pip install -e ".[monitoring]"
+prometheus-client>=0.17.0
+opentelemetry-api>=1.15.0
+opentelemetry-sdk>=1.15.0
