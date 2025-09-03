@@ -6,7 +6,12 @@ Cognee MCP v2.0 配置管理
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
-from pydantic import BaseSettings, Field, validator
+from pydantic import Field, validator
+try:
+    from pydantic_settings import BaseSettings
+except ImportError:
+    # 兼容Pydantic v1
+    from pydantic import BaseSettings
 from pydantic.networks import HttpUrl
 import yaml
 
@@ -367,6 +372,7 @@ class Settings(BaseSettings):
         env_file_encoding = "utf-8"
         case_sensitive = False
         use_enum_values = True
+        env_nested_delimiter = '__'
     
     @classmethod
     def load_from_file(cls, config_file: Union[str, Path]) -> 'Settings':
