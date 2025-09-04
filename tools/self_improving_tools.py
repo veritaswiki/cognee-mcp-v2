@@ -50,7 +50,7 @@ class PerformanceMonitorTool(BaseTool):
                 "include_recommendations": {
                     "type": "boolean",
                     "description": "是否包含优化建议",
-                    "default": true
+                    "default": True
                 },
                 "alert_threshold": {
                     "type": "number",
@@ -672,7 +672,7 @@ class LearningFeedbackTool(BaseTool):
                 "auto_adjust": {
                     "type": "boolean",
                     "description": "是否自动调整系统参数",
-                    "default": true
+                    "default": True
                 },
                 "learning_rate": {
                     "type": "number",

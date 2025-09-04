@@ -410,6 +410,12 @@ class ToolRegistry:
             "disabled_tools": len([t for t in self._tools.values() if not t.metadata.enabled]),
             "rate_limited_tools": len(self._rate_limiters)
         }
+    
+    def get_tools_by_category(self) -> Dict[str, List[str]]:
+        """按类别获取工具列表"""
+        return {
+            cat.value: tools.copy() for cat, tools in self._categories.items()
+        }
 
 
 # ============================================================================

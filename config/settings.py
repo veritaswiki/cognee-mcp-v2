@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic.networks import HttpUrl
 import yaml
 
@@ -15,60 +15,57 @@ import yaml
 class CogneeAPISettings(BaseSettings):
     """Cognee API连接配置"""
     
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
+    
     # API服务地址
-    api_url: HttpUrl = Field(
+    cognee_api_url: str = Field(
         default="https://mcp-cognee.veritas.wiki",
-        env="COGNEE_API_URL",
         description="Cognee API服务地址"
     )
     
     # API认证配置
-    api_key: Optional[str] = Field(
+    cognee_api_key: Optional[str] = Field(
         default=None, 
-        env="COGNEE_API_KEY",
         description="JWT Token或API密钥"
     )
-    api_key_header: str = Field(
+    cognee_api_key_header: str = Field(
         default="Authorization",
-        env="COGNEE_API_KEY_HEADER", 
         description="API密钥请求头名称"
     )
-    api_key_scheme: str = Field(
+    cognee_api_key_scheme: str = Field(
         default="Bearer",
-        env="COGNEE_API_KEY_SCHEME",
         description="认证方案 (Bearer/Token/ApiKey)"
     )
     
     # 用户凭据 (备选认证方式)
-    api_email: Optional[str] = Field(
+    cognee_api_email: Optional[str] = Field(
         default=None,
-        env="COGNEE_API_EMAIL",
         description="用户邮箱"
     )
-    api_password: Optional[str] = Field(
+    cognee_api_password: Optional[str] = Field(
         default=None,
-        env="COGNEE_API_PASSWORD", 
         description="用户密码"
     )
     
     # 请求配置
-    timeout: float = Field(
+    cognee_timeout: float = Field(
         default=180.0,
-        env="COGNEE_TIMEOUT",
         description="API请求超时时间(秒)"
     )
-    max_retries: int = Field(
+    cognee_max_retries: int = Field(
         default=3,
-        env="COGNEE_MAX_RETRIES",
         description="最大重试次数"
     )
-    retry_delay: float = Field(
+    cognee_retry_delay: float = Field(
         default=1.0,
-        env="COGNEE_RETRY_DELAY",
         description="重试延迟时间(秒)"
     )
     
-    @field_validator('api_url')
+    @field_validator('cognee_api_url')
     @classmethod
     def validate_api_url(cls, v):
         """验证API URL格式"""
@@ -77,11 +74,42 @@ class CogneeAPISettings(BaseSettings):
                 raise ValueError('API URL必须以http://或https://开头')
         return v
     
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = False
-        extra = "ignore"
+    # 兼容性属性
+    @property
+    def api_url(self):
+        return self.cognee_api_url
+    
+    @property
+    def api_key(self):
+        return self.cognee_api_key
+    
+    @property
+    def api_key_header(self):
+        return self.cognee_api_key_header
+    
+    @property
+    def api_key_scheme(self):
+        return self.cognee_api_key_scheme
+    
+    @property
+    def api_email(self):
+        return self.cognee_api_email
+    
+    @property
+    def api_password(self):
+        return self.cognee_api_password
+    
+    @property
+    def timeout(self):
+        return self.cognee_timeout
+    
+    @property
+    def max_retries(self):
+        return self.cognee_max_retries
+    
+    @property
+    def retry_delay(self):
+        return self.cognee_retry_delay
 
 
 class MCPServerSettings(BaseSettings):
@@ -358,17 +386,17 @@ class Settings(BaseSettings):
     timezone: str = Field(default="UTC", env="TIMEZONE", description="时区")
     
     # 子配置模块
-    api: CogneeAPISettings = CogneeAPISettings()
-    mcp: MCPServerSettings = MCPServerSettings()
-    features: FeatureSettings = FeatureSettings()
-    temporal: TemporalSettings = TemporalSettings()
-    ontology: OntologySettings = OntologySettings()
-    memory: MemorySettings = MemorySettings()
-    feedback: FeedbackSettings = FeedbackSettings()
-    logging: LoggingSettings = LoggingSettings()
-    monitoring: MonitoringSettings = MonitoringSettings()
-    security: SecuritySettings = SecuritySettings()
-    cache: CacheSettings = CacheSettings()
+    api: CogneeAPISettings = Field(default_factory=CogneeAPISettings)
+    mcp: MCPServerSettings = Field(default_factory=MCPServerSettings)
+    features: FeatureSettings = Field(default_factory=FeatureSettings)
+    temporal: TemporalSettings = Field(default_factory=TemporalSettings)
+    ontology: OntologySettings = Field(default_factory=OntologySettings)
+    memory: MemorySettings = Field(default_factory=MemorySettings)
+    feedback: FeedbackSettings = Field(default_factory=FeedbackSettings)
+    logging: LoggingSettings = Field(default_factory=LoggingSettings)
+    monitoring: MonitoringSettings = Field(default_factory=MonitoringSettings)
+    security: SecuritySettings = Field(default_factory=SecuritySettings)
+    cache: CacheSettings = Field(default_factory=CacheSettings)
     
     class Config:
         env_file = ".env"

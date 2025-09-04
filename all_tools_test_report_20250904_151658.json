@@ -1,0 +1,2192 @@
+{
+  "timestamp": "2025-09-04T15:16:58.714352",
+  "summary": {
+    "total_tools": 35,
+    "total_tests": 68,
+    "total_success": 2,
+    "total_auth": 66,
+    "total_errors": 0
+  },
+  "categories": {
+    "basic": [
+      "add_text",
+      "add_files",
+      "cognify",
+      "search"
+    ],
+    "graph": [
+      "graph_query",
+      "graph_labels",
+      "graph_stats",
+      "graph_sample",
+      "graph_counts_by_label"
+    ],
+    "dataset": [
+      "datasets_list",
+      "dataset_get",
+      "dataset_delete",
+      "dataset_stats"
+    ],
+    "temporal": [
+      "time_window_query",
+      "timeline_reconstruct",
+      "temporal_pattern_analysis",
+      "event_sequence_analysis"
+    ],
+    "ontology": [
+      "ontology_mapping",
+      "concept_hierarchy",
+      "semantic_reasoning",
+      "relation_inference"
+    ],
+    "memory": [
+      "memory_store",
+      "memory_retrieve",
+      "memory_update",
+      "context_manager",
+      "memory_consolidation"
+    ],
+    "self_improving": [
+      "performance_monitor",
+      "auto_optimization",
+      "learning_feedback",
+      "system_tuning"
+    ],
+    "diagnostic": [
+      "status",
+      "health_check",
+      "error_analysis",
+      "log_analysis",
+      "connectivity_test"
+    ]
+  },
+  "tool_results": [
+    {
+      "tool_name": "add_text",
+      "description": "添加纯文本数据到指定数据集",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "text"
+        ],
+        "optional_params": [
+          "dataset_name"
+        ],
+        "param_types": {
+          "dataset_name": "string"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "text": "这是一个测试文本内容"
+          },
+          "elapsed": 0.002846240997314453,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "text": "这是一个测试文本内容",
+            "dataset_name": "main_dataset"
+          },
+          "elapsed": 0.001882791519165039,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "add_files",
+      "description": "添加文件列表到指定数据集",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "files"
+        ],
+        "optional_params": [
+          "dataset_name"
+        ],
+        "param_types": {
+          "dataset_name": "string"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "files": [
+              "test_file.txt"
+            ]
+          },
+          "elapsed": 0.0018057823181152344,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "files": [
+              "test_file.txt"
+            ],
+            "dataset_name": "main_dataset"
+          },
+          "elapsed": 0.0014290809631347656,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "cognify",
+      "description": "将数据集处理成知识图谱",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "datasets",
+          "dataset_ids",
+          "run_in_background"
+        ],
+        "param_types": {
+          "datasets": "array",
+          "dataset_ids": "array",
+          "run_in_background": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0019040107727050781,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "run_in_background": false
+          },
+          "elapsed": 0.001728057861328125,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "search",
+      "description": "在知识图谱中进行语义搜索",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "query"
+        ],
+        "optional_params": [
+          "limit",
+          "dataset_ids",
+          "search_type",
+          "include_metadata"
+        ],
+        "param_types": {
+          "limit": "number",
+          "dataset_ids": "array",
+          "search_type": "string",
+          "include_metadata": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "query": "测试查询"
+          },
+          "elapsed": 0.0017409324645996094,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "query": "测试查询",
+            "limit": 10,
+            "search_type": "graph_completion",
+            "include_metadata": true
+          },
+          "elapsed": 0.0014050006866455078,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "status",
+      "description": "检查Cognee服务状态",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "detailed"
+        ],
+        "param_types": {
+          "detailed": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.013564825057983398,
+          "success": true,
+          "auth_required": false,
+          "error": null,
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{'success': False, 'message': '服务状态检查失败', 'error': \"'coroutine' object does not support the asynchronous context manager protocol\", 'status': 'unknown'}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "detailed": false
+          },
+          "elapsed": 0.0015969276428222656,
+          "success": true,
+          "auth_required": false,
+          "error": null,
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{'success': False, 'message': '服务状态检查失败', 'error': \"'coroutine' object does not support the asynchronous context manager protocol\", 'status': 'unknown'}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 2,
+        "auth_required": 0,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "graph_query",
+      "description": "执行Cypher查询语句查询图数据库",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "cypher"
+        ],
+        "optional_params": [
+          "dataset_id"
+        ],
+        "param_types": {
+          "dataset_id": "string"
+        },
+        "has_defaults": false,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "cypher": "test_cypher"
+          },
+          "elapsed": 0.0017910003662109375,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "cypher": "test_cypher",
+            "dataset_id": "optional_dataset_id"
+          },
+          "elapsed": 0.0017817020416259766,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "graph_labels",
+      "description": "获取图数据库中的所有节点标签",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id",
+          "limit"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "limit": "number"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0014998912811279297,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id",
+            "limit": 50
+          },
+          "elapsed": 0.002086162567138672,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "graph_stats",
+      "description": "获取图数据库的统计信息",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id"
+        ],
+        "param_types": {
+          "dataset_id": "string"
+        },
+        "has_defaults": false,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017175674438476562,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id"
+          },
+          "elapsed": 0.0018150806427001953,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "graph_sample",
+      "description": "从图数据库中采样节点和关系进行检查",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id",
+          "node_limit",
+          "rel_limit",
+          "label"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "node_limit": "number",
+          "rel_limit": "number",
+          "label": "string"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017628669738769531,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id",
+            "node_limit": 10,
+            "rel_limit": 10,
+            "label": "optional_label"
+          },
+          "elapsed": 0.0017898082733154297,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "graph_counts_by_label",
+      "description": "按节点标签统计数量",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id",
+          "limit"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "limit": "number"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017931461334228516,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id",
+            "limit": 100
+          },
+          "elapsed": 0.001737833023071289,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "datasets_list",
+      "description": "获取用户可访问的所有数据集列表",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "include_empty"
+        ],
+        "param_types": {
+          "include_empty": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017189979553222656,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "include_empty": true
+          },
+          "elapsed": 0.0016851425170898438,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "dataset_get",
+      "description": "获取指定数据集的详细信息",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "dataset_id"
+        ],
+        "optional_params": [],
+        "param_types": {},
+        "has_defaults": false,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "dataset_id": "test_dataset_001"
+          },
+          "elapsed": 0.002173900604248047,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "success": 0,
+        "auth_required": 1,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "dataset_delete",
+      "description": "删除指定的数据集（谨慎操作）",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "dataset_id",
+          "confirm"
+        ],
+        "optional_params": [],
+        "param_types": {},
+        "has_defaults": false,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "dataset_id": "test_dataset_001",
+            "confirm": true
+          },
+          "elapsed": 0.0013251304626464844,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 1,
+        "success": 0,
+        "auth_required": 1,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "dataset_stats",
+      "description": "获取数据集的统计信息",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id"
+        ],
+        "param_types": {
+          "dataset_id": "string"
+        },
+        "has_defaults": false,
+        "complexity": "simple"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017230510711669922,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id"
+          },
+          "elapsed": 0.001750946044921875,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "time_window_query",
+      "description": "在指定时间窗口内查询数据",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "start_time",
+          "end_time"
+        ],
+        "optional_params": [
+          "dataset_id",
+          "query",
+          "limit"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "query": "string",
+          "limit": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "start_time": "2024-01-01T00:00:00Z",
+            "end_time": "2024-12-31T23:59:59Z"
+          },
+          "elapsed": 0.001692056655883789,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "start_time": "2024-01-01T00:00:00Z",
+            "end_time": "2024-12-31T23:59:59Z",
+            "dataset_id": "optional_dataset_id",
+            "query": "optional_query",
+            "limit": 50
+          },
+          "elapsed": 0.0015239715576171875,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "timeline_reconstruct",
+      "description": "重建实体的时间线序列",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "entity_id"
+        ],
+        "optional_params": [
+          "dataset_id",
+          "granularity",
+          "max_events"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "granularity": "string",
+          "max_events": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "entity_id": "test_entity_id"
+          },
+          "elapsed": 0.0017840862274169922,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "entity_id": "test_entity_id",
+            "dataset_id": "optional_dataset_id",
+            "granularity": "day",
+            "max_events": 100
+          },
+          "elapsed": 0.0017600059509277344,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "temporal_pattern_analysis",
+      "description": "分析时间序列数据中的模式和趋势",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "dataset_id",
+          "pattern_type",
+          "time_unit",
+          "lookback_days"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "pattern_type": "string",
+          "time_unit": "string",
+          "lookback_days": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017240047454833984,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "dataset_id": "optional_dataset_id",
+            "pattern_type": "frequency",
+            "time_unit": "day",
+            "lookback_days": 30
+          },
+          "elapsed": 0.0018088817596435547,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "event_sequence_analysis",
+      "description": "分析事件序列和因果关系",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "seed_event"
+        ],
+        "optional_params": [
+          "dataset_id",
+          "max_depth",
+          "time_window_hours",
+          "direction"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "max_depth": "number",
+          "time_window_hours": "number",
+          "direction": "string"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "seed_event": "test_seed_event"
+          },
+          "elapsed": 0.0017070770263671875,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "seed_event": "test_seed_event",
+            "dataset_id": "optional_dataset_id",
+            "max_depth": 5,
+            "time_window_hours": 24,
+            "direction": "forward"
+          },
+          "elapsed": 0.0017099380493164062,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "ontology_mapping",
+      "description": "将实体映射到本体概念",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "entities"
+        ],
+        "optional_params": [
+          "ontology_namespace",
+          "dataset_id",
+          "confidence_threshold",
+          "max_candidates"
+        ],
+        "param_types": {
+          "ontology_namespace": "string",
+          "dataset_id": "string",
+          "confidence_threshold": "number",
+          "max_candidates": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "entities": [
+              "test_item"
+            ]
+          },
+          "elapsed": 0.0017349720001220703,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "entities": [
+              "test_item"
+            ],
+            "ontology_namespace": "default",
+            "dataset_id": "optional_dataset_id",
+            "confidence_threshold": 0.7,
+            "max_candidates": 5
+          },
+          "elapsed": 0.0017709732055664062,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "concept_hierarchy",
+      "description": "查询和构建概念层次结构",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "concept_uri"
+        ],
+        "optional_params": [
+          "dataset_id",
+          "direction",
+          "max_depth",
+          "include_siblings"
+        ],
+        "param_types": {
+          "dataset_id": "string",
+          "direction": "string",
+          "max_depth": "number",
+          "include_siblings": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "concept_uri": "test_concept_uri"
+          },
+          "elapsed": 0.0017290115356445312,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "concept_uri": "test_concept_uri",
+            "dataset_id": "optional_dataset_id",
+            "direction": "both",
+            "max_depth": 5,
+            "include_siblings": false
+          },
+          "elapsed": 0.0018308162689208984,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "semantic_reasoning",
+      "description": "执行基于本体的语义推理",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "reasoning_type",
+          "premises"
+        ],
+        "optional_params": [
+          "query",
+          "dataset_id",
+          "ontology_namespace"
+        ],
+        "param_types": {
+          "query": "string",
+          "dataset_id": "string",
+          "ontology_namespace": "string"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "reasoning_type": "test_reasoning_type",
+            "premises": [
+              "test_item"
+            ]
+          },
+          "elapsed": 0.001708984375,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "reasoning_type": "test_reasoning_type",
+            "premises": [
+              "test_item"
+            ],
+            "query": "optional_query",
+            "dataset_id": "optional_dataset_id",
+            "ontology_namespace": "default"
+          },
+          "elapsed": 0.0017898082733154297,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "relation_inference",
+      "description": "推理隐含的关系和属性",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "source_entity"
+        ],
+        "optional_params": [
+          "target_entity",
+          "dataset_id",
+          "inference_rules",
+          "max_hops",
+          "confidence_threshold"
+        ],
+        "param_types": {
+          "target_entity": "string",
+          "dataset_id": "string",
+          "inference_rules": "array",
+          "max_hops": "number",
+          "confidence_threshold": "number"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "source_entity": "test_source_entity"
+          },
+          "elapsed": 0.001394033432006836,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "source_entity": "test_source_entity",
+            "target_entity": "optional_target_entity",
+            "dataset_id": "optional_dataset_id",
+            "inference_rules": [
+              "transitivity",
+              "symmetry",
+              "inheritance"
+            ],
+            "max_hops": 3,
+            "confidence_threshold": 0.5
+          },
+          "elapsed": 0.0018601417541503906,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "memory_store",
+      "description": "存储新的记忆条目",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "memory_content"
+        ],
+        "optional_params": [
+          "memory_type",
+          "importance_score",
+          "tags",
+          "context_id",
+          "dataset_id",
+          "retention_days"
+        ],
+        "param_types": {
+          "memory_type": "string",
+          "importance_score": "number",
+          "tags": "array",
+          "context_id": "string",
+          "dataset_id": "string",
+          "retention_days": "number"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "memory_content": "test_memory_content"
+          },
+          "elapsed": 0.001806020736694336,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "memory_content": "test_memory_content",
+            "memory_type": "episodic",
+            "importance_score": 0.5,
+            "context_id": "optional_context_id",
+            "dataset_id": "optional_dataset_id",
+            "retention_days": 30
+          },
+          "elapsed": 0.0017559528350830078,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "memory_retrieve",
+      "description": "检索相关记忆",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "query"
+        ],
+        "optional_params": [
+          "memory_types",
+          "context_id",
+          "dataset_id",
+          "limit",
+          "min_importance",
+          "include_expired"
+        ],
+        "param_types": {
+          "memory_types": "array",
+          "context_id": "string",
+          "dataset_id": "string",
+          "limit": "number",
+          "min_importance": "number",
+          "include_expired": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "query": "测试查询"
+          },
+          "elapsed": 0.001728057861328125,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "query": "测试查询",
+            "memory_types": [],
+            "context_id": "optional_context_id",
+            "dataset_id": "optional_dataset_id",
+            "limit": 10,
+            "min_importance": 0.0,
+            "include_expired": false
+          },
+          "elapsed": 0.001238107681274414,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "memory_update",
+      "description": "更新现有记忆",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "memory_id"
+        ],
+        "optional_params": [
+          "new_content",
+          "importance_adjustment",
+          "add_tags",
+          "remove_tags",
+          "extend_retention",
+          "dataset_id"
+        ],
+        "param_types": {
+          "new_content": "string",
+          "importance_adjustment": "number",
+          "add_tags": "array",
+          "remove_tags": "array",
+          "extend_retention": "number",
+          "dataset_id": "string"
+        },
+        "has_defaults": false,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "memory_id": "test_memory_id"
+          },
+          "elapsed": 0.0017669200897216797,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "memory_id": "test_memory_id",
+            "new_content": "optional_new_content",
+            "importance_adjustment": 5,
+            "extend_retention": 5,
+            "dataset_id": "optional_dataset_id"
+          },
+          "elapsed": 0.0018298625946044922,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "context_manager",
+      "description": "管理对话上下文和记忆关联",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "action"
+        ],
+        "optional_params": [
+          "context_id",
+          "context_name",
+          "context_type",
+          "metadata",
+          "dataset_id"
+        ],
+        "param_types": {
+          "context_id": "string",
+          "context_name": "string",
+          "context_type": "string",
+          "metadata": "object",
+          "dataset_id": "string"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "action": "test_action"
+          },
+          "elapsed": 0.001766204833984375,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "action": "test_action",
+            "context_id": "optional_context_id",
+            "context_name": "optional_context_name",
+            "context_type": "conversation",
+            "dataset_id": "optional_dataset_id"
+          },
+          "elapsed": 0.0017321109771728516,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "memory_consolidation",
+      "description": "整合和优化记忆存储",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "consolidation_type",
+          "dataset_id",
+          "dry_run",
+          "batch_size"
+        ],
+        "param_types": {
+          "consolidation_type": "string",
+          "dataset_id": "string",
+          "dry_run": "boolean",
+          "batch_size": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017211437225341797,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "consolidation_type": "expired_cleanup",
+            "dataset_id": "optional_dataset_id",
+            "dry_run": false,
+            "batch_size": 100
+          },
+          "elapsed": 0.0017096996307373047,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "performance_monitor",
+      "description": "监控系统性能指标",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "metric_types",
+          "time_window_hours",
+          "dataset_id",
+          "include_recommendations",
+          "alert_threshold"
+        ],
+        "param_types": {
+          "metric_types": "array",
+          "time_window_hours": "number",
+          "dataset_id": "string",
+          "include_recommendations": "boolean",
+          "alert_threshold": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017099380493164062,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "metric_types": [
+              "query_performance",
+              "memory_usage",
+              "api_latency",
+              "error_rate"
+            ],
+            "time_window_hours": 24,
+            "dataset_id": "optional_dataset_id",
+            "include_recommendations": true,
+            "alert_threshold": 0.8
+          },
+          "elapsed": 0.001692056655883789,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "auto_optimization",
+      "description": "执行自动系统优化",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "optimization_targets",
+          "dataset_id",
+          "dry_run",
+          "max_duration_minutes",
+          "aggressiveness"
+        ],
+        "param_types": {
+          "optimization_targets": "array",
+          "dataset_id": "string",
+          "dry_run": "boolean",
+          "max_duration_minutes": "number",
+          "aggressiveness": "string"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.001703023910522461,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "optimization_targets": [
+              "memory_cleanup",
+              "query_optimization",
+              "index_maintenance",
+              "cache_optimization"
+            ],
+            "dataset_id": "optional_dataset_id",
+            "dry_run": false,
+            "max_duration_minutes": 30,
+            "aggressiveness": "moderate"
+          },
+          "elapsed": 0.001728057861328125,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "learning_feedback",
+      "description": "收集和分析系统学习反馈",
+      "schema_analysis": {
+        "has_required": true,
+        "required_params": [
+          "feedback_type"
+        ],
+        "optional_params": [
+          "feedback_data",
+          "learning_context",
+          "dataset_id",
+          "auto_adjust",
+          "learning_rate"
+        ],
+        "param_types": {
+          "feedback_data": "object",
+          "learning_context": "string",
+          "dataset_id": "string",
+          "auto_adjust": "boolean",
+          "learning_rate": "number"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {
+            "feedback_type": "test_feedback_type"
+          },
+          "elapsed": 0.0016179084777832031,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "feedback_type": "test_feedback_type",
+            "learning_context": "optional_learning_context",
+            "dataset_id": "optional_dataset_id",
+            "auto_adjust": true,
+            "learning_rate": 0.1
+          },
+          "elapsed": 0.0017480850219726562,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "system_tuning",
+      "description": "系统参数调优和配置优化",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "tuning_mode",
+          "target_metrics",
+          "dataset_id",
+          "baseline_metrics",
+          "max_iterations",
+          "convergence_threshold"
+        ],
+        "param_types": {
+          "tuning_mode": "string",
+          "target_metrics": "array",
+          "dataset_id": "string",
+          "baseline_metrics": "object",
+          "max_iterations": "number",
+          "convergence_threshold": "number"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017879009246826172,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "tuning_mode": "balanced",
+            "target_metrics": [
+              "response_time",
+              "accuracy",
+              "memory_usage"
+            ],
+            "dataset_id": "optional_dataset_id",
+            "max_iterations": 10,
+            "convergence_threshold": 0.01
+          },
+          "elapsed": 0.0018701553344726562,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "health_check",
+      "description": "执行全面的系统健康检查",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "check_categories",
+          "dataset_id",
+          "include_detailed_report",
+          "timeout_seconds"
+        ],
+        "param_types": {
+          "check_categories": "array",
+          "dataset_id": "string",
+          "include_detailed_report": "boolean",
+          "timeout_seconds": "number"
+        },
+        "has_defaults": true,
+        "complexity": "moderate"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0018079280853271484,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "check_categories": [
+              "connectivity",
+              "database",
+              "memory",
+              "performance",
+              "configuration"
+            ],
+            "dataset_id": "optional_dataset_id",
+            "include_detailed_report": true,
+            "timeout_seconds": 30
+          },
+          "elapsed": 0.00177001953125,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "error_analysis",
+      "description": "分析系统错误和异常模式",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "analysis_period_hours",
+          "error_types",
+          "severity_filter",
+          "dataset_id",
+          "include_root_cause",
+          "group_by_pattern"
+        ],
+        "param_types": {
+          "analysis_period_hours": "number",
+          "error_types": "array",
+          "severity_filter": "string",
+          "dataset_id": "string",
+          "include_root_cause": "boolean",
+          "group_by_pattern": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017058849334716797,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "analysis_period_hours": 24,
+            "error_types": [],
+            "severity_filter": "all",
+            "dataset_id": "optional_dataset_id",
+            "include_root_cause": true,
+            "group_by_pattern": true
+          },
+          "elapsed": 0.0017380714416503906,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "log_analysis",
+      "description": "分析系统日志和操作记录",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "log_sources",
+          "analysis_period_hours",
+          "log_level",
+          "search_keywords",
+          "dataset_id",
+          "include_statistics",
+          "max_log_entries"
+        ],
+        "param_types": {
+          "log_sources": "array",
+          "analysis_period_hours": "number",
+          "log_level": "string",
+          "search_keywords": "array",
+          "dataset_id": "string",
+          "include_statistics": "boolean",
+          "max_log_entries": "number"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0015780925750732422,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "log_sources": [
+              "application",
+              "query",
+              "error",
+              "performance"
+            ],
+            "analysis_period_hours": 24,
+            "log_level": "ALL",
+            "search_keywords": [],
+            "dataset_id": "optional_dataset_id",
+            "include_statistics": true,
+            "max_log_entries": 1000
+          },
+          "elapsed": 0.0018548965454101562,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    },
+    {
+      "tool_name": "connectivity_test",
+      "description": "测试系统各组件连接性",
+      "schema_analysis": {
+        "has_required": false,
+        "required_params": [],
+        "optional_params": [
+          "test_targets",
+          "test_depth",
+          "timeout_per_test",
+          "dataset_id",
+          "include_latency_test",
+          "concurrent_tests"
+        ],
+        "param_types": {
+          "test_targets": "array",
+          "test_depth": "string",
+          "timeout_per_test": "number",
+          "dataset_id": "string",
+          "include_latency_test": "boolean",
+          "concurrent_tests": "boolean"
+        },
+        "has_defaults": true,
+        "complexity": "complex"
+      },
+      "test_cases": [
+        {
+          "case_id": 1,
+          "params": {},
+          "elapsed": 0.0017120838165283203,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        },
+        {
+          "case_id": 2,
+          "params": {
+            "test_targets": [
+              "api_server",
+              "database",
+              "cache",
+              "external_services"
+            ],
+            "test_depth": "basic",
+            "timeout_per_test": 10,
+            "dataset_id": "optional_dataset_id",
+            "include_latency_test": true,
+            "concurrent_tests": true
+          },
+          "elapsed": 0.0017478466033935547,
+          "success": false,
+          "auth_required": true,
+          "error": {
+            "message": "认证失败: 所有认证方法都失败: None",
+            "code": -32001
+          },
+          "response": null
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "success": 0,
+        "auth_required": 2,
+        "errors": 0
+      }
+    }
+  ]
+}
