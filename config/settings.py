@@ -6,12 +6,8 @@ Cognee MCP v2.0 配置管理
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
-from pydantic import Field, validator
-try:
-    from pydantic_settings import BaseSettings
-except ImportError:
-    # 兼容Pydantic v1
-    from pydantic import BaseSettings
+from pydantic import Field, field_validator
+from pydantic_settings import BaseSettings
 from pydantic.networks import HttpUrl
 import yaml
 
@@ -72,13 +68,20 @@ class CogneeAPISettings(BaseSettings):
         description="重试延迟时间(秒)"
     )
     
-    @validator('api_url')
+    @field_validator('api_url')
+    @classmethod
     def validate_api_url(cls, v):
         """验证API URL格式"""
         if isinstance(v, str):
             if not v.startswith(('http://', 'https://')):
                 raise ValueError('API URL必须以http://或https://开头')
         return v
+    
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+        case_sensitive = False
+        extra = "ignore"
 
 
 class MCPServerSettings(BaseSettings):
@@ -373,6 +376,7 @@ class Settings(BaseSettings):
         case_sensitive = False
         use_enum_values = True
         env_nested_delimiter = '__'
+        extra = "ignore"  # 允许额外字段
     
     @classmethod
     def load_from_file(cls, config_file: Union[str, Path]) -> 'Settings':
